@@ -8,10 +8,13 @@ export const theme = createTheme({
             "100":red['100']
         },
         background:{
-            default:"#0D1117"
+            default:"#1D1D2A"
         },
         secondary: {
             "main":"#FFF"
+        },
+        text:{
+            primary:"#FFF"
         }
     }
 })

@@ -1,4 +1,5 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material"
+import { Favorite, FavoriteBorder } from "@mui/icons-material"
+import { Button, Card, CardActions, CardContent, CardMedia, Checkbox, Typography } from "@mui/material"
 
 interface CharacterCardProps {
     name: string,
@@ -7,20 +8,23 @@ interface CharacterCardProps {
 
 function CharacterCard({name, img}: CharacterCardProps){
     return (
-        <Card sx={{ width: 400}}>
+        <Card sx={{ width: 200, height: 350}}>
         <CardMedia
-          sx={{ height: 400}}
+          sx={{ height: 200}}
           image={img}
           title="green iguana"
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+        <CardContent sx={{
+          pb:"0"
+        }}>
+          <Typography gutterBottom variant="h5" component="div" color="#000">
             {name}
           </Typography>
         </CardContent>
-        <CardActions>
-          <Button size="small">Share</Button>
-          <Button size="small">Learn More</Button>
+        <CardActions sx={{
+          pt:"0"
+        }}>
+          <Checkbox icon={<FavoriteBorder /> } checkedIcon={<Favorite />}/>
         </CardActions>
       </Card>
     )

@@ -1,8 +1,7 @@
-import { Grid, Pagination } from "@mui/material";
-import { useEffect, useRef, useState } from "react";
+import { Box, Grid, Pagination } from "@mui/material";
+import { useState } from "react";
 import useSWR from "swr";
 import { fetcher } from "../api/Marvel";
-import { marvelAxios, marvelFetch } from "../api/Marvel/request";
 import { Character } from "../types/Character";
 import { RequestMarvelAPI } from "../types/RequestMarvelAPI";
 import { CharacterCard } from "./CharacterCard";
@@ -27,7 +26,7 @@ function CharactersGrid(){
     if(isLoading){
         return (
             <Grid container spacing={2}>    
-                <Grid container item spacing={2} sx={{display:"flex", justifyContent:"center"}}>
+                <Grid container item spacing={2} >
                     {
                         Array(8).fill(null).map((_,id) => (
                             <Grid item key={id}>
@@ -41,10 +40,10 @@ function CharactersGrid(){
     }
     
     return (
-        <>
-            <Grid container spacing={2}>
+        <Box>
+            <Grid container >
                 
-                <Grid container item spacing={2} sx={{display:"flex", justifyContent:"center"}}>
+                <Grid container item spacing={2} sx={{display:"flex"}}>
                     {
                         data?.results?.map((character,id) => (
                             <Grid item key={id}>
@@ -55,8 +54,8 @@ function CharactersGrid(){
                 </Grid>
 
             </Grid>
-            <Pagination count={paginationCount} page={page} onChange={handleChangePage} shape="rounded" color="primary" sx={{ display:"flex", justifyContent:"center",marginTop:"20px", background:"#fff"}}/>
-        </>
+            <Pagination count={paginationCount} page={page} onChange={handleChangePage} shape="rounded" color="primary" sx={{ display:"flex", justifyContent:"center",marginTop:"20px"}}/>
+        </Box>
     )
 }
 export { CharactersGrid }
