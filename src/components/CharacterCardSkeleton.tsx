@@ -2,8 +2,8 @@ import { Button, Card, CardActions, CardContent, CardMedia, Skeleton, Typography
 
 function CharacterCardSkeleton(){
     return (
-        <Card sx={{ width: 400}}>
-        <Skeleton sx={{ height: 400 }} animation="wave" variant="rectangular" color="blue" />
+        <Card sx={{ width: 200, height: 350}}>
+        <Skeleton sx={{ height: 200}}animation="wave" variant="rectangular" color="blue" />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             <Skeleton />

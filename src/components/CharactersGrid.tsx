@@ -11,11 +11,11 @@ import { CharacterCardSkeleton } from "./CharacterCardSkeleton";
 // Adicionar swr
 // Adicionar redux toolkit
 
-function CharactersGrid(){
+function CharactersGrid({limit}: {limit: number}){
     const [page, setPage] = useState(1)
     const offset = (page-1) * 8  
 
-    const {data, isLoading} = useSWR<RequestMarvelAPI<Character>>({url:'/characters',offset, limit:8}, ({url, offset, limit}) => fetcher({url,offset,limit}))
+    const {data, isLoading} = useSWR<RequestMarvelAPI<Character>>({url:'/characters',offset, limit}, ({url, offset, limit}) => fetcher({url,offset,limit}))
     const paginationCount = data ? Math.round(data.total / 8) : 0 ; 
 
 
@@ -25,7 +25,7 @@ function CharactersGrid(){
 
     if(isLoading){
         return (
-            <Grid container spacing={2}>    
+            <Grid container spacing={2} >    
                 <Grid container item spacing={2} >
                     {
                         Array(8).fill(null).map((_,id) => (

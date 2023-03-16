@@ -62,19 +62,14 @@ function Sidebar(){
             <ListItem disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  <Drafts />
+                  <MovieCreation sx={{
+                    color:"text.primary"
+                  }}/>
                 </ListItemIcon>
                 <ListItemText primary="Séries" />
               </ListItemButton>
             </ListItem>
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <Drafts />
-                </ListItemIcon>
-                <ListItemText primary="Drafts" />
-              </ListItemButton>
-            </ListItem>
+            
           </List>
         </nav>
 

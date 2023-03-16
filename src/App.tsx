@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 import { CharactersGrid } from './components/CharactersGrid';
 import { Header } from './components/Header';
@@ -10,7 +10,7 @@ function App() {
   return (
     <>
     <CssBaseline />
-    <Box display="grid" gridTemplateColumns="250px 1fr">
+    <Box display="grid" gridTemplateColumns="245px 1fr">
       <Box>
         <Sidebar />
       </Box>
@@ -18,12 +18,18 @@ function App() {
       <Box >
         <Header />
         <Box sx={{
-          padding:'40px',
+          py:5,
+          pl:5,
           display:"grid",
           gridTemplateColumns:"1fr 500px"
         }}>
-          <CharactersGrid />
+          <CharactersGrid limit={8}/>
+          <Box>
+          <Typography fontWeight='bold' fontSize="28\px">Personagens Favoritos</Typography>
 
+              <CharactersGrid limit={4}/>  
+          </Box>
+          
         </Box>
       </Box>
     </Box>
