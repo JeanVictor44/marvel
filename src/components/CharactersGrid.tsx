@@ -2,21 +2,19 @@ import { Box, Grid, Pagination } from "@mui/material";
 import { useState } from "react";
 import useSWR from "swr";
 import { fetcher } from "../api/Marvel";
-import { Character } from "../types/Character";
-import { RequestMarvelAPI } from "../types/RequestMarvelAPI";
 import { CharacterCard } from "./CharacterCard";
-import { CharacterCardSkeleton } from "./CharacterCardSkeleton";
+import { GridCardsSkeleton } from "./GridCardsSkeleton";
 
-// Melhorar o layout
-// Adicionar swr
-// Adicionar redux toolkit
-
-function CharactersGrid({limit}: {limit: number}){
+interface CharactersGridProps {
+    cardsAmount: number
+}
+function CharactersGrid({cardsAmount}: CharactersGridProps){
     const [page, setPage] = useState(1)
-    const offset = (page-1) * limit
+    const [search, setSearch] = useState('')
+    const offset = (page-1) * cardsAmount
 
-    const {data, isLoading} = useSWR({url:'/characters',offset, limit}, ({url, offset, limit}) => fetcher({url,offset,limit}))
-    const paginationCount = data ? Math.round(data.total / 8) : 0 ; 
+    const {data, isLoading} = useSWR({url:'/characters',offset, limit:cardsAmount}, ({url, offset, limit}) => fetcher({url,offset,limit}))
+    const paginationCount = data ? Math.round(data.total / cardsAmount) : 0 ; 
 
 
     const handleChangePage = (event: React.ChangeEvent<unknown>, value: number) => {
@@ -25,17 +23,7 @@ function CharactersGrid({limit}: {limit: number}){
 
     if(isLoading){
         return (
-            <Grid container spacing={2} >    
-                <Grid container item spacing={2} >
-                    {
-                        Array(limit).fill(null).map((_,id) => (
-                            <Grid item key={id}>
-                                <CharacterCardSkeleton />
-                            </Grid>
-                        ))
-                    }
-                </Grid>
-            </Grid>
+            <GridCardsSkeleton cardsAmount={cardsAmount}/>
         )
     }
     

@@ -1,19 +1,31 @@
+import { FavoriteBorder } from "@mui/icons-material"
 import { Button, Card, CardActions, CardContent, CardMedia, Skeleton, Typography } from "@mui/material"
 
 function CharacterCardSkeleton(){
     return (
-        <Card sx={{ width: 200, height: 350}}>
-        <Skeleton sx={{ height: 200}}animation="wave" variant="rectangular" color="blue" />
+      <Card sx={{ width: 200, height: 350, position:"relative"}}>
+        <Skeleton 
+        
+          sx={{
+            bgcolor:'#dedede'
+          }}
+          height={200}
+          width={200}
+          animation="wave"
+          variant="rectangular"
+        />
+
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            <Skeleton />
+            <Skeleton animation='wave'  sx={{
+            bgcolor:'#dedede'
+          }}/>
           </Typography>
         </CardContent>
 
         <CardActions>
-          
-            <Skeleton variant="rectangular" width={50} height={20}/>
-            <Skeleton variant="rectangular" width={50} height={20}/>
+          <FavoriteBorder />
+    
         
         </CardActions>
       </Card>

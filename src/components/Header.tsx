@@ -21,23 +21,27 @@ function Header(){
                     ml: 5, 
                     width:"100%",
                     maxWidth: '650px',
-                    border:'1px solid #2E2D40',
+                    border:'1px solid #2E2D40'
                     
-                }} variant="outlined" >
-                    <InputLabel htmlFor="outlined-adornment-password" sx={{
+                }} 
+                    variant="outlined"
+                    focused={false}
+                    
+                >
+                    <InputLabel htmlFor="outlined-adornment-search" sx={{
                         color:'#fff',
-                        ':hover': {
-                            border:'1px solid #2E2D40',
-    
-                        }
-
-                    }} >Search...</InputLabel>
+                        
+                    }} >
+                        Search...
+                    </InputLabel>
                     <OutlinedInput
 
-                        id="outlined-adornment-password"
-                        label="Password"
+                        id="outlined-adornment-search"
+                        label="search"
+                        
                     />
-                    </FormControl>     
+                    </FormControl>   
+
                     <Box sx={{
                         mr:5,
                         display:'flex',
