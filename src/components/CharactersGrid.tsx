@@ -13,9 +13,9 @@ import { CharacterCardSkeleton } from "./CharacterCardSkeleton";
 
 function CharactersGrid({limit}: {limit: number}){
     const [page, setPage] = useState(1)
-    const offset = (page-1) * 8  
+    const offset = (page-1) * limit
 
-    const {data, isLoading} = useSWR<RequestMarvelAPI<Character>>({url:'/characters',offset, limit}, ({url, offset, limit}) => fetcher({url,offset,limit}))
+    const {data, isLoading} = useSWR({url:'/characters',offset, limit}, ({url, offset, limit}) => fetcher({url,offset,limit}))
     const paginationCount = data ? Math.round(data.total / 8) : 0 ; 
 
 
@@ -28,7 +28,7 @@ function CharactersGrid({limit}: {limit: number}){
             <Grid container spacing={2} >    
                 <Grid container item spacing={2} >
                     {
-                        Array(8).fill(null).map((_,id) => (
+                        Array(limit).fill(null).map((_,id) => (
                             <Grid item key={id}>
                                 <CharacterCardSkeleton />
                             </Grid>
