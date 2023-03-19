@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/comics',
-                element: <ComicsGrid comicsAmount={10} />
+                element: <ComicsGrid comicsAmount={14} />
             },
 
             {

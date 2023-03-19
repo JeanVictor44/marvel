@@ -31,7 +31,7 @@ function ComicsGrid({comicsAmount}: ComicsGridProps){
                     data?.results.map((comics) => (
                         <Grid item key={comics.id}>
                             <Box>
-                                <img src={`${comics.thumbnail.path}.${comics.thumbnail.extension}`} width={250} height={350}/>
+                                <img src={`${comics.thumbnail.path}.${comics.thumbnail.extension}`} width={200} height={250}/>
                                 <Typography width={200}>
                                     {comics.title}
                                 </Typography>
@@ -41,7 +41,7 @@ function ComicsGrid({comicsAmount}: ComicsGridProps){
                     ))
                 }
             </Grid>
-            <Pagination count={paginationCount} page={page} onChange={handleChangePage} shape="rounded" color="primary" sx={{ display:"flex", justifyContent:"center",marginTop:"20px"}}/>
+            <Pagination count={paginationCount} page={page} onChange={handleChangePage} shape="rounded" color="primary" sx={{ display:"flex", justifyContent:"center",marginTop:"20px", width:'100%'}}/>
 
         </Grid>
     )
