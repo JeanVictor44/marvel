@@ -1,8 +1,9 @@
 import { Box, Typography } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
-import { CharactersGrid } from './components/CharactersGrid';
-import { Header } from './components/Header';
-import { Sidebar } from './components/Sidebar';
+import { Outlet } from 'react-router-dom';
+import { CharactersGrid } from '../components/CharactersGrid';
+import { Header } from '../components/Header';
+import { Sidebar } from '../components/Sidebar';
 
 
 function App() {
@@ -23,7 +24,8 @@ function App() {
           py:5,
           pl:5,
         }}>
-          <CharactersGrid cardsAmount={14}/>
+          <Outlet />
+
         </Box>
       </Box>
     </Box>

@@ -2,6 +2,7 @@ import { DarkModeOutlined, Drafts, MovieCreation, Person } from "@mui/icons-mate
 import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from "@mui/material";
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import AutoStoriesOutlinedIcon from '@mui/icons-material/AutoStoriesOutlined';
+import { Link } from "react-router-dom";
 
 function Sidebar(){
     return (
@@ -30,17 +31,23 @@ function Sidebar(){
               Mundo Geek
             </Typography>
             <ListItem disablePadding >
+            <Link to="/">
               <ListItemButton>
+              
                 <ListItemIcon>
                   <Person sx={{
                     color:"text.primary"
                   }} />
                 </ListItemIcon>
                 <ListItemText primary="Personagens" />
+                
               </ListItemButton>
+              </Link>
             </ListItem>
+
             <ListItem disablePadding>
               <ListItemButton>
+                
                 <ListItemIcon>
                   <MovieCreation sx={{
                     color:"text.primary"
@@ -50,6 +57,8 @@ function Sidebar(){
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
+            <Link to="/comics">
+
               <ListItemButton>
                 <ListItemIcon>
                   <AutoStoriesOutlinedIcon sx={{
@@ -58,6 +67,7 @@ function Sidebar(){
                 </ListItemIcon>
                 <ListItemText primary="Comics" />
               </ListItemButton>
+              </Link>
             </ListItem>
             <ListItem disablePadding>
               <ListItemButton>
